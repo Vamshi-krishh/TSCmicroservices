@@ -3,12 +3,12 @@ package com.nagra.microservice;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tv_show")
+@Table(name = "tv_shows")
 public class TvShow {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tv_show_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "title")
