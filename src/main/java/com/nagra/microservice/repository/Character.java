@@ -3,7 +3,7 @@ package com.nagra.microservice.repository;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tv_character")
+@Table(name = "tv_characters")
 public class Character {
 
     @Id

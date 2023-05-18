@@ -14,11 +14,14 @@ import java.util.*;
 @RequestMapping("/api/v1/shows")
 public class TvShowController {
 
-    @Autowired
-    private TvShowRepository tvShowRepository;
+    private final TvShowRepository tvShowRepository;
+    private final CharacterRepository characterRepository;
 
     @Autowired
-    private CharacterRepository characterRepository;
+    public TvShowController(TvShowRepository tvShowRepository, CharacterRepository characterRepository) {
+        this.tvShowRepository = tvShowRepository;
+        this.characterRepository = characterRepository;
+    }
 
     @GetMapping
     public List<TvShow> getAllTvShows() {
@@ -44,4 +47,7 @@ public class TvShowController {
         }
         return ResponseEntity.ok().body(characters);
     }
+
+    // Add methods for inserting new TV shows and characters here
+
 }

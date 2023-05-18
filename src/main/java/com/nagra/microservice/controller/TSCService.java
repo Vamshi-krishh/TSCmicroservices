@@ -11,7 +11,7 @@ import java.util.List;
 public class TSCService {
     private final TvShowRepository showRepository;
 
-    public TSCService( TvShowRepository showRepository) {
+    public TSCService(TvShowRepository showRepository) {
         this.showRepository = showRepository;
     }
 
@@ -27,6 +27,8 @@ public class TSCService {
         // Implement logic to fetch characters for a specific show
         // using showRepository or CharacterRepository
         // Return the list of characters
+        // Example: Assuming CharacterRepository exists
+        // return characterRepository.findByTvShowId(id);
         return null;
     }
 }
