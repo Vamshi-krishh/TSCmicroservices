@@ -1,5 +1,7 @@
 package com.nagra.microservice.repository;
 
+import com.nagra.microservice.TvShow;
+
 import javax.persistence.*;
 
 @Entity
@@ -61,5 +63,8 @@ public class Character {
 
     public void setTvShowId(Long tvShowId) {
         this.tvShowId = tvShowId;
+    }
+
+    public void setTvShow(TvShow tvShow) {
     }
 }

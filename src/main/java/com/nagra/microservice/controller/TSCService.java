@@ -31,4 +31,8 @@ public class TSCService {
         // return characterRepository.findByTvShowId(id);
         return null;
     }
+
+    public TvShow createTvShow(TvShow tvShow) {
+        return showRepository.save(tvShow);
+    }
 }
