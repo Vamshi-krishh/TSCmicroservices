@@ -1,8 +1,13 @@
 package com.nagra.microservice.controller;
 
 import com.nagra.microservice.Service.TvShowService;
+<<<<<<< HEAD
 import com.nagra.microservice.entity.Character;
 import com.nagra.microservice.entity.TvShow;
+=======
+import entity.Character;
+import entity.TvShow;
+>>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -21,12 +26,20 @@ import java.util.Set;
 @RequestMapping("/api/v1/shows")
 @Api(tags = "TV Shows")
 public class TvShowController {
+<<<<<<< HEAD
 
 
     @Autowired
     private TvShowService tvShowService;
     private static final Logger logger = LoggerFactory.getLogger(TvShowController.class);
 
+=======
+    private static final Logger logger = LoggerFactory.getLogger(TvShowController.class);
+
+    private final TvShowService tvShowService;
+
+    @Autowired
+>>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
     public TvShowController(TvShowService tvShowService) {
         this.tvShowService = tvShowService;
     }
@@ -124,4 +137,8 @@ public class TvShowController {
         }
     }
 
+<<<<<<< HEAD
+=======
+    // Add other necessary methods and mappings here
+>>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
 }

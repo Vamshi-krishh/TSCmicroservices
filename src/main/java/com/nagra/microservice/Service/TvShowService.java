@@ -1,9 +1,16 @@
 package com.nagra.microservice.Service;
 
+<<<<<<< HEAD
 import com.nagra.microservice.entity.Character;
 import com.nagra.microservice.repository.CharacterRepository;
 import com.nagra.microservice.entity.TvShow;
 import com.nagra.microservice.repository.TvShowRepository;
+=======
+import com.nagra.microservice.repository.CharacterRepository;
+import com.nagra.microservice.repository.TvShowRepository;
+import entity.Character;
+import entity.TvShow;
+>>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +21,7 @@ import java.util.Set;
 
 @Service
 public class TvShowService {
+<<<<<<< HEAD
 
     @Autowired
     private  TvShowRepository tvShowRepository;
@@ -26,6 +34,16 @@ public class TvShowService {
 //        this.tvShowRepository = tvShowRepository;
 //        this.characterRepository = characterRepository;
 //    }
+=======
+    private final TvShowRepository tvShowRepository;
+    private final CharacterRepository characterRepository;
+
+    @Autowired
+    public TvShowService(TvShowRepository tvShowRepository, CharacterRepository characterRepository) {
+        this.tvShowRepository = tvShowRepository;
+        this.characterRepository = characterRepository;
+    }
+>>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
 
     public List<TvShow> getAllTvShows() {
         return tvShowRepository.findAll();
@@ -55,7 +73,11 @@ public class TvShowService {
     }
 
     public Optional<Character> getCharacterById(Long characterId) {
+<<<<<<< HEAD
         return characterRepository.findById(characterId);
+=======
+        return null;
+>>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
     }
 
     public Character updateCharacter(Character existingCharacter) {
