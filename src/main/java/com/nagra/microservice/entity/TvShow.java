@@ -3,6 +3,7 @@ package com.nagra.microservice.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class TvShow {
     private String synopsis;
 
     @Column(name = "release_year")
-    private Integer releaseYear;
+    private LocalDateTime releaseYear;
 
     @JsonIgnore
     @OneToMany(mappedBy = "tvShow", cascade = CascadeType.ALL)
@@ -32,7 +33,7 @@ public class TvShow {
     public TvShow() {
     }
 
-    public TvShow(Long id, String title, String synopsis, Integer releaseYear) {
+    public TvShow(Long id, String title, String synopsis, LocalDateTime releaseYear) {
         this.id = id;
         this.title = title;
         this.synopsis = synopsis;
@@ -63,11 +64,11 @@ public class TvShow {
         this.synopsis = synopsis;
     }
 
-    public Integer getReleaseYear() {
+    public LocalDateTime getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(Integer releaseYear) {
+    public void setReleaseYear(LocalDateTime releaseYear) {
         this.releaseYear = releaseYear;
     }
 
@@ -77,33 +78,5 @@ public class TvShow {
 
     public void setCharacters(List<Character> characters) {
         this.characters = characters;
-    }
-
-    public Object getName() {
-        return null;
-    }
-
-    public Object getDescription() {
-        return null;
-    }
-
-    public Object getGenre() {
-        return null;
-    }
-
-    public Object getRating() {
-        return null;
-    }
-
-    public void setName(Object name) {
-    }
-
-    public void setDescription(Object description) {
-    }
-
-    public void setGenre(Object genre) {
-    }
-
-    public void setRating(Object rating) {
     }
 }

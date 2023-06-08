@@ -1,13 +1,8 @@
 package com.nagra.microservice.controller;
 
 import com.nagra.microservice.Service.TvShowService;
-<<<<<<< HEAD
 import com.nagra.microservice.entity.Character;
 import com.nagra.microservice.entity.TvShow;
-=======
-import entity.Character;
-import entity.TvShow;
->>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -26,20 +21,12 @@ import java.util.Set;
 @RequestMapping("/api/v1/shows")
 @Api(tags = "TV Shows")
 public class TvShowController {
-<<<<<<< HEAD
 
 
     @Autowired
     private TvShowService tvShowService;
     private static final Logger logger = LoggerFactory.getLogger(TvShowController.class);
 
-=======
-    private static final Logger logger = LoggerFactory.getLogger(TvShowController.class);
-
-    private final TvShowService tvShowService;
-
-    @Autowired
->>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
     public TvShowController(TvShowService tvShowService) {
         this.tvShowService = tvShowService;
     }
@@ -108,10 +95,9 @@ public class TvShowController {
         Optional<TvShow> optionalTvShow = tvShowService.getTvShowById(tvShowId);
         if (optionalTvShow.isPresent()) {
             TvShow existingTvShow = optionalTvShow.get();
-            existingTvShow.setName(updatedTvShow.getName());
-            existingTvShow.setDescription(updatedTvShow.getDescription());
-            existingTvShow.setGenre(updatedTvShow.getGenre());
-            existingTvShow.setRating(updatedTvShow.getRating());
+            existingTvShow.setTitle(updatedTvShow.getTitle());
+            existingTvShow.setSynopsis(updatedTvShow.getSynopsis());
+            existingTvShow.setReleaseYear(updatedTvShow.getReleaseYear());
             TvShow updatedShow = tvShowService.updateTvShow(existingTvShow);
             return ResponseEntity.ok().body(updatedShow);
         } else {
@@ -137,8 +123,4 @@ public class TvShowController {
         }
     }
 
-<<<<<<< HEAD
-=======
-    // Add other necessary methods and mappings here
->>>>>>> 1fb768f9b744b845561c4381bdfda96a3c100935
 }
