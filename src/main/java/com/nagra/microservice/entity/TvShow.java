@@ -72,11 +72,15 @@ public class TvShow {
         this.releaseYear = releaseYear;
     }
 
-    public List<Character> getCharacters() {
-        return characters;
-    }
+//    public String getName() {
+//        return null;
+//    }
 
-    public void setCharacters(List<Character> characters) {
-        this.characters = characters;
-    }
+//    public List<Character> getCharacters() {
+//        return characters;
+//    }
+//
+//    public void setCharacters(List<Character> characters) {
+//        this.characters = characters;
+//    }
 }

@@ -34,14 +34,14 @@ public class TvShowController {
     @GetMapping
     @ApiOperation("Get all TV shows")
     public List<TvShow> getAllTvShows() {
-        logger.info("Fetching all TV shows");
+        logger.debug("Fetching all TV shows");
         return tvShowService.getAllTvShows();
     }
 
     @GetMapping("/{id}")
     @ApiOperation("Get a TV show by ID")
     public ResponseEntity<TvShow> getTvShowById(@PathVariable(value = "id") Long tvShowId) {
-        logger.info("Fetching TV show with ID: {}", tvShowId);
+        logger.debug("Fetching TV show with ID: {}", tvShowId);
         Optional<TvShow> optionalTvShow = tvShowService.getTvShowById(tvShowId);
         if (optionalTvShow.isPresent()) {
             TvShow tvShow = optionalTvShow.get();
@@ -55,7 +55,7 @@ public class TvShowController {
     @GetMapping("/{id}/characters")
     @ApiOperation("Get characters by TV show ID")
     public ResponseEntity<Set<Character>> getCharactersByTvShowId(@PathVariable(value = "id") Long tvShowId) {
-        logger.info("Fetching characters for TV show with ID: {}", tvShowId);
+        logger.debug("Fetching characters for TV show with ID: {}", tvShowId);
         Set<Character> characters = tvShowService.getCharactersByTvShowId(tvShowId);
         if (characters.isEmpty()) {
             logger.error("No characters found for TV show with ID: {}", tvShowId);
@@ -82,23 +82,21 @@ public class TvShowController {
             @PathVariable(value = "id") Long tvShowId,
             @RequestBody @Valid Character character
     ) {
-        logger.info("Adding character {} to TV show with ID: {}", character, tvShowId);
+        logger.debug("Adding character {} to TV show with ID: {}", character, tvShowId);
         Character createdCharacter = tvShowService.addCharacterToTvShow(tvShowId, character);
-        if (createdCharacter != null) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdCharacter);
+        if (createdCharacter != null) {return ResponseEntity.status(HttpStatus.CREATED).body(createdCharacter);
         } else {
             logger.error("TV show with ID {} not found", tvShowId);
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "TV show not found");
         }
     }
-
     @PutMapping("/{id}")
     @ApiOperation("Update a TV show")
     public ResponseEntity<TvShow> updateTvShow(
             @PathVariable(value = "id") Long tvShowId,
             @RequestBody @Valid TvShow updatedTvShow
     ) {
-        logger.info("Updating TV show with ID: {}", tvShowId);
+        logger.debug("Updating TV show with ID: {}", tvShowId);
         Optional<TvShow> optionalTvShow = tvShowService.getTvShowById(tvShowId);
         if (optionalTvShow.isPresent()) {
             TvShow existingTvShow = optionalTvShow.get();
@@ -120,7 +118,7 @@ public class TvShowController {
             @PathVariable(value = "characterId") Long characterId,
             @RequestBody @Valid Character updatedCharacter
     ) {
-        logger.info("Updating character with ID {} in TV show with ID: {}", characterId, tvShowId);
+        logger.debug("Updating character with ID {} in TV show with ID: {}", characterId, tvShowId);
         Optional<Character> optionalCharacter = tvShowService.getCharacterById(characterId);
         if (optionalCharacter.isPresent()) {
             Character existingCharacter = optionalCharacter.get();
@@ -133,6 +131,8 @@ public class TvShowController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Character not found");
         }
     }
+
+
 }
 
 
